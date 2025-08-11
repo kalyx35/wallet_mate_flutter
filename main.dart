@@ -314,7 +314,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   ),
                 ),
                 icon: const Icon(Icons.call_received),
-                label: const Text('Receive Payment'),
+                label: const Text('Add Expense'),
               ),
               ElevatedButton.icon(
                 onPressed: () => Navigator.push(
@@ -325,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   ),
                 ),
                 icon: const Icon(Icons.send),
-                label: const Text('Send Payment'),
+                label: const Text('Add Income'),
               ),
             ],
           ),
@@ -363,8 +363,8 @@ class _TransactionsListViewState extends State<TransactionsListView> {
         return Card(
           child: ListTile(
             leading: CircleAvatar(child: Icon(t.incoming ? Icons.arrow_downward : Icons.arrow_upward)),
-            title: Text('${contact.name}'),
-            subtitle: Text('${DateFormat.yMMMd().format(t.date)}'),
+            title: Text(contact.name),
+            subtitle: Text(DateFormat.yMMMd().format(t.date)),
             trailing: Text('${t.incoming ? '+' : '-'}₹${t.amount.toStringAsFixed(2)}'),
             onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => TransactionDetailsScreen(transactionId: t.id))),
           ),
@@ -398,7 +398,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
                   child: ListTile(
                     leading: CircleAvatar(child: Text(c.name.isNotEmpty ? c.name[0] : '?')),
                     title: Text(c.name),
-                    subtitle: Text('${c.phone}'),
+                    subtitle: Text(c.phone),
                     trailing: PopupMenuButton<String>(
                       onSelected: (v) {
                         if (v == 'edit') Navigator.push(context, MaterialPageRoute(builder: (_) => AddEditContactScreen(contact: c)));
@@ -538,7 +538,7 @@ class TransactionsScreen extends StatefulWidget {
 class _TransactionsScreenState extends State<TransactionsScreen> {
   bool _showIncoming = true;
   bool _showOutgoing = true;
-  Set<Category> _selectedCategories = Category.values.toSet();
+  final Set<Category> _selectedCategories = Category.values.toSet();
 
   @override
   Widget build(BuildContext context) {
@@ -860,7 +860,7 @@ class ReportsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(children: [
-          const Text('Simple Transactions Table'),
+          const Text('Transactions Table'),
           const SizedBox(height: 12),
           Expanded(
             child: SingleChildScrollView(
