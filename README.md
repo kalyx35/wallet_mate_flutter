@@ -47,3 +47,4 @@ It helps you keep an eye on your balance, record payments, and analyze your spen
 - This app is for demonstration and learning purposes.
 
 ## License
+-MIT License
