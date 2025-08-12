@@ -314,7 +314,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   ),
                 ),
                 icon: const Icon(Icons.call_received),
-                label: const Text('Add Expense'),
+                label: const Text('Receive Money'),
               ),
               ElevatedButton.icon(
                 onPressed: () => Navigator.push(
@@ -325,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   ),
                 ),
                 icon: const Icon(Icons.send),
-                label: const Text('Add Income'),
+                label: const Text('Send Money'),
               ),
             ],
           ),
